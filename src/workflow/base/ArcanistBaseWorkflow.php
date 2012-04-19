@@ -677,12 +677,17 @@ abstract class ArcanistBaseWorkflow {
 
     $unstaged = $api->getUnstagedChanges();
     if ($unstaged) {
-      throw new ArcanistUsageException(
-        "You have unstaged changes in this working copy. Stage and commit (or ".
-        "revert) them before proceeding.\n\n".
-        $working_copy_desc.
-        "  Unstaged changes in working copy:\n".
-        "    ".implode("\n    ", $unstaged)."\n");
+        /**
+         * Hot fix.
+         * @todo add cli option to ignore this exception
+         *
+         */
+    /*  throw new ArcanistUsageException(*/
+        //"You have unstaged changes in this working copy. Stage and commit (or ".
+        //"revert) them before proceeding.\n\n".
+        //$working_copy_desc.
+        //"  Unstaged changes in working copy:\n".
+        /*"    ".implode("\n    ", $unstaged)."\n");*/
     }
 
     $uncommitted = $api->getUncommittedChanges();
